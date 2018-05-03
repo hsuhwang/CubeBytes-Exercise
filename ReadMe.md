@@ -3,7 +3,7 @@
 The algorithm is used to find the minimal path from node A to B in the bi-directed graph.It will
 be used to answer the questions.
     _Can someone get from cityA to cityB?_
-# Depth-first search algorithm
+## Depth-first search algorithm
 The algorithm is used to answer the following question.
     _Given city A, can we detect if there is a loop leading back to city A?_
 
