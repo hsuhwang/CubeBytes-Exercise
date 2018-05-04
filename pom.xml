@@ -57,7 +57,7 @@
         <configuration>
           <scalaVersion>${scala.version}</scalaVersion>
           <args>
-            <arg>-target:jvm-1.5</arg>
+            <arg>-target:jvm-1.8</arg>
           </args>
         </configuration>
       </plugin>
@@ -76,6 +76,41 @@
             <classpathContainer>org.eclipse.jdt.launching.JRE_CONTAINER</classpathContainer>
             <classpathContainer>ch.epfl.lamp.sdt.launching.SCALA_CONTAINER</classpathContainer>
           </classpathContainers>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <filters>
+            <filter>
+              <artifact>*:*</artifact>
+              <excludes>
+                <exclude>META-INF/*.SF</exclude>
+                <exclude>META-INF/*.DSA</exclude>
+                <exclude>META-INF/*.RSA</exclude>
+              </excludes>
+            </filter>
+          </filters>
+          <artifactSet>
+            <excludes>
+              <exclude>classworlds:classworlds</exclude>
+              <exclude>junit:junit</exclude>
+              <exclude>jmock:*</exclude>
+              <exclude>*:xml-apis</exclude>
+              <exclude>org.apache.maven:lib:tests</exclude>
+              <exclude>log4j:log4j:jar:</exclude>
+            </excludes>
+          </artifactSet>
+          <finalName>uber-${artifactId}-${version}</finalName>
         </configuration>
       </plugin>
     </plugins>

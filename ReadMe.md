@@ -13,8 +13,10 @@ populated during the input file loading process.
 There is a separate class *TeleportExpertSystem*, which holds all the algorithms to trasverse the graph to give out answers.
 
 # Execution
-The main program *TeleportApp*, upon feeded with a input file containging the data of the graph and questions being aske,
-will populate the graph and give out answer one by on.
+To execute the program in the command line. First package up the uber jar files in maven. Then issue the following command
+*java -cp <path_to_uber_jar>/uber-coding.challenge-1.0-Final.jar com.bytecubed.TeleportApp <path_to_input_file>/city_input.txt*
+
+
 
 Assumption:
 Make sure the input file doesn't contain some unnecessary characters
